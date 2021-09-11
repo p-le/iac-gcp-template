@@ -6,8 +6,8 @@ Please update latest version of terraform, gcloud-sdk docker image
 * TERRAFORM_VERSION: https://hub.docker.com/r/hashicorp/terraform/tags
 * GCLOUD_SDK_VERSION: https://hub.docker.com/r/google/cloud-sdk/tags
 
-## Step 2: Build local AWSCLI image include Terraform
-Merge terraform into awscli docker image
+## Step 2: Build local Gcloud image include Terraform
+Merge terraform into gcloud sdk docker image
 ```
 make build-gcloud-terraform-image
 ```
@@ -16,8 +16,9 @@ make build-gcloud-terraform-image
 
 1. Click `Use this template`
 2. Create new Service Account and download json credentials file using GCP Console
-2. Copy Service Account JSON file to: `gcloud/credentials`
-3. Active Service Account to gcloud SDK ``
+3. Copy Service Account JSON file to: `gcloud/credentials`
+4. Update `CREDENTIAL_FILE :=` in Makefile
+4. Active Service Account to gcloud SDK
 ```
 make gcloud ARG="gcloud auth activate-service-account --key-file=/gcloud/credentials/****.json"
 ```
