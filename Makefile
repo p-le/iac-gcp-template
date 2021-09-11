@@ -24,7 +24,7 @@ terraform:
 	@docker container run -it --rm \
 		-v ${BASE_PATH}/gcloud/config:/gcloud/config \
 		-v ${BASE_PATH}/gcloud/credentials:/gcloud/credentials \
+		-v $(BASE_PATH)/src:/work \
 		-e CLOUDSDK_CONFIG=/gcloud/config \
-        --entrypoint terraform \
-		gcloud:$(GCLOUD_SDK_VERSION) \
-			$(ARG)
+		gcloud:$(GCLOUD_SDK_VERSION) terraform $(ARG)
+
